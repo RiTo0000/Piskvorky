@@ -66,6 +66,7 @@ public class Piskvorky {
                     this.grid[i][0] == this.grid[i][1] &&
                     this.grid[i][1] == this.grid[i][2]) {
                 //Winner riadok
+                return new PiskvorkyWinner(0, i, 2, i, this.grid[i][0]);
             }
         }
         
@@ -75,6 +76,7 @@ public class Piskvorky {
                     this.grid[0][j] == this.grid[1][j] &&
                     this.grid[1][j] == this.grid[2][j]) {
                 //Winner stlpec
+                return new PiskvorkyWinner(j, 0, j, 2, this.grid[0][j]);
             }
         }
         
@@ -83,22 +85,25 @@ public class Piskvorky {
                 this.grid[0][0] == this.grid[1][1] &&
                 this.grid[1][1] == this.grid[2][2]) {
             //Winner diagonala
+            return new PiskvorkyWinner(0, 0, 2, 2, this.grid[0][0]);
         }
         else if (this.grid[2][0] != 0 && //LD ->PH
                 this.grid[2][0] == this.grid[1][1] &&
                 this.grid[1][1] == this.grid[0][2]) {
             //Winner diagonala
+            return new PiskvorkyWinner(0, 2, 2, 0, this.grid[2][0]);
         }
 
-        //TODO kontrola remizy
-        for (int i = 0; i < 10; i++) {//riadky
-            for (int j = 0; j < 10; j++) {//stlpce
+        //kontorla ci mame volne este nejake pole
+        for (int i = 0; i < 3; i++) {//riadky
+            for (int j = 0; j < 3; j++) {//stlpce
                 if (this.grid[i][j] == 0) {
                     return new PiskvorkyWinner(0, 0, 0, 0, 0); //este je volne miesto v gride remiza to nie je
                 }
             }
         }
-
+        
+        //ak som sa dostal az tu je remiza
         return new PiskvorkyWinner(0, 0, 0, 0, 3); //remiza treba to nejak poslat tam
     }
 }

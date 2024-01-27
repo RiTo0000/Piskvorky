@@ -5,7 +5,9 @@
 package GUI;
 
 import Piskvorky.Piskvorky;
+import Piskvorky.PiskvorkyWinner;
 import java.awt.Graphics;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -325,7 +327,10 @@ public class AppUI extends javax.swing.JFrame {
                 break;
             default:
                 //tu nerob nic je to 0 teda nie je to povoleny tah
+                return;
         }
+        
+        this.checkWinner();
     }//GEN-LAST:event_LTPanelMouseClicked
 
     private void MTPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MTPanelMouseClicked
@@ -339,8 +344,10 @@ public class AppUI extends javax.swing.JFrame {
                 this.drawCircle(xPos, yPos);
                 break;
             default:
-                //tu nerob nic je to 0 teda nie je to povoleny tah
+                return;
         }
+        
+        this.checkWinner();
     }//GEN-LAST:event_MTPanelMouseClicked
 
     private void RTPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RTPanelMouseClicked
@@ -354,8 +361,10 @@ public class AppUI extends javax.swing.JFrame {
                 this.drawCircle(xPos, yPos);
                 break;
             default:
-                //tu nerob nic je to 0 teda nie je to povoleny tah
+                return;
         }
+        
+        this.checkWinner();
     }//GEN-LAST:event_RTPanelMouseClicked
 
     private void LMPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LMPanelMouseClicked
@@ -369,8 +378,10 @@ public class AppUI extends javax.swing.JFrame {
                 this.drawCircle(xPos, yPos);
                 break;
             default:
-                //tu nerob nic je to 0 teda nie je to povoleny tah
+                return;
         }
+        
+        this.checkWinner();
     }//GEN-LAST:event_LMPanelMouseClicked
 
     private void MMPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MMPanelMouseClicked
@@ -384,8 +395,10 @@ public class AppUI extends javax.swing.JFrame {
                 this.drawCircle(xPos, yPos);
                 break;
             default:
-                //tu nerob nic je to 0 teda nie je to povoleny tah
+                return;
         }
+        
+        this.checkWinner();
     }//GEN-LAST:event_MMPanelMouseClicked
 
     private void RMPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RMPanelMouseClicked
@@ -399,8 +412,10 @@ public class AppUI extends javax.swing.JFrame {
                 this.drawCircle(xPos, yPos);
                 break;
             default:
-                //tu nerob nic je to 0 teda nie je to povoleny tah
+                return;
         }
+        
+        this.checkWinner();
     }//GEN-LAST:event_RMPanelMouseClicked
 
     private void LBPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LBPanelMouseClicked
@@ -414,8 +429,10 @@ public class AppUI extends javax.swing.JFrame {
                 this.drawCircle(xPos, yPos);
                 break;
             default:
-                //tu nerob nic je to 0 teda nie je to povoleny tah
+                return;
         }
+        
+        this.checkWinner();
     }//GEN-LAST:event_LBPanelMouseClicked
 
     private void MBPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MBPanelMouseClicked
@@ -429,8 +446,10 @@ public class AppUI extends javax.swing.JFrame {
                 this.drawCircle(xPos, yPos);
                 break;
             default:
-                //tu nerob nic je to 0 teda nie je to povoleny tah
+                return;
         }
+        
+        this.checkWinner();
     }//GEN-LAST:event_MBPanelMouseClicked
 
     private void RBPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RBPanelMouseClicked
@@ -444,8 +463,10 @@ public class AppUI extends javax.swing.JFrame {
                 this.drawCircle(xPos, yPos);
                 break;
             default:
-                //tu nerob nic je to 0 teda nie je to povoleny tah
+                return;
         }
+        
+        this.checkWinner();
     }//GEN-LAST:event_RBPanelMouseClicked
 
     public void drawCircle(int xPos, int yPos) {
@@ -457,6 +478,19 @@ public class AppUI extends javax.swing.JFrame {
         Graphics g = getGraphics();
         g.drawLine(xPos, yPos, xPos + 80, yPos + 80);
         g.drawLine(xPos, yPos + 80, xPos + 80, yPos);
+    }
+    
+    public void checkWinner() {
+        PiskvorkyWinner winner = this.piskvorky.checkWinner();
+        //TODO logika kreslenia a tak
+        if (winner.winner != 0) { //ak sa nerovna 0 tak niekto vyhral alebo je remiza
+            if (winner.winner == 3) { //remiza staci upozornenie
+                JOptionPane.showMessageDialog(this.rootPane, "Remiza");
+            } 
+            else {//niekto vyhral treba vykreslit ciaru a aj dat popup
+                
+            }
+        }
     }
     
     /**
