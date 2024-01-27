@@ -4,6 +4,8 @@
  */
 package GUI;
 
+import java.awt.Graphics;
+
 /**
  *
  * @author namer
@@ -46,6 +48,11 @@ public class AppUI extends javax.swing.JFrame {
         LTPanel.setAlignmentX(0.0F);
         LTPanel.setAlignmentY(0.0F);
         LTPanel.setMaximumSize(new java.awt.Dimension(100, 100));
+        LTPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LTPanelMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout LTPanelLayout = new javax.swing.GroupLayout(LTPanel);
         LTPanel.setLayout(LTPanelLayout);
@@ -63,6 +70,11 @@ public class AppUI extends javax.swing.JFrame {
         MTPanel.setAlignmentY(0.0F);
         MTPanel.setMaximumSize(new java.awt.Dimension(100, 100));
         MTPanel.setMinimumSize(new java.awt.Dimension(100, 100));
+        MTPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MTPanelMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout MTPanelLayout = new javax.swing.GroupLayout(MTPanel);
         MTPanel.setLayout(MTPanelLayout);
@@ -80,6 +92,11 @@ public class AppUI extends javax.swing.JFrame {
         RTPanel.setAlignmentY(0.0F);
         RTPanel.setMaximumSize(new java.awt.Dimension(100, 100));
         RTPanel.setMinimumSize(new java.awt.Dimension(100, 100));
+        RTPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RTPanelMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout RTPanelLayout = new javax.swing.GroupLayout(RTPanel);
         RTPanel.setLayout(RTPanelLayout);
@@ -98,6 +115,11 @@ public class AppUI extends javax.swing.JFrame {
         LMPanel.setMaximumSize(new java.awt.Dimension(100, 100));
         LMPanel.setMinimumSize(new java.awt.Dimension(100, 100));
         LMPanel.setPreferredSize(new java.awt.Dimension(100, 100));
+        LMPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LMPanelMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout LMPanelLayout = new javax.swing.GroupLayout(LMPanel);
         LMPanel.setLayout(LMPanelLayout);
@@ -116,6 +138,11 @@ public class AppUI extends javax.swing.JFrame {
         MMPanel.setMaximumSize(new java.awt.Dimension(100, 100));
         MMPanel.setMinimumSize(new java.awt.Dimension(100, 100));
         MMPanel.setPreferredSize(new java.awt.Dimension(100, 100));
+        MMPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MMPanelMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout MMPanelLayout = new javax.swing.GroupLayout(MMPanel);
         MMPanel.setLayout(MMPanelLayout);
@@ -134,6 +161,11 @@ public class AppUI extends javax.swing.JFrame {
         RMPanel.setMaximumSize(new java.awt.Dimension(100, 100));
         RMPanel.setMinimumSize(new java.awt.Dimension(100, 100));
         RMPanel.setPreferredSize(new java.awt.Dimension(100, 100));
+        RMPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RMPanelMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout RMPanelLayout = new javax.swing.GroupLayout(RMPanel);
         RMPanel.setLayout(RMPanelLayout);
@@ -152,6 +184,11 @@ public class AppUI extends javax.swing.JFrame {
         LBPanel.setMaximumSize(new java.awt.Dimension(100, 100));
         LBPanel.setMinimumSize(new java.awt.Dimension(100, 100));
         LBPanel.setPreferredSize(new java.awt.Dimension(100, 100));
+        LBPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LBPanelMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout LBPanelLayout = new javax.swing.GroupLayout(LBPanel);
         LBPanel.setLayout(LBPanelLayout);
@@ -170,6 +207,11 @@ public class AppUI extends javax.swing.JFrame {
         MBPanel.setMaximumSize(new java.awt.Dimension(100, 100));
         MBPanel.setMinimumSize(new java.awt.Dimension(100, 100));
         MBPanel.setPreferredSize(new java.awt.Dimension(100, 100));
+        MBPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MBPanelMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout MBPanelLayout = new javax.swing.GroupLayout(MBPanel);
         MBPanel.setLayout(MBPanelLayout);
@@ -188,6 +230,11 @@ public class AppUI extends javax.swing.JFrame {
         RBPanel.setMaximumSize(new java.awt.Dimension(100, 100));
         RBPanel.setMinimumSize(new java.awt.Dimension(100, 100));
         RBPanel.setPreferredSize(new java.awt.Dimension(100, 100));
+        RBPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RBPanelMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout RBPanelLayout = new javax.swing.GroupLayout(RBPanel);
         RBPanel.setLayout(RBPanelLayout);
@@ -254,6 +301,71 @@ public class AppUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void LTPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LTPanelMouseClicked
+        int xPos = 18;
+        int yPos = 41;
+        this.drawCircle(xPos, yPos);
+    }//GEN-LAST:event_LTPanelMouseClicked
+
+    private void MTPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MTPanelMouseClicked
+        int xPos = 118;
+        int yPos = 41;
+        this.drawCircle(xPos, yPos);
+    }//GEN-LAST:event_MTPanelMouseClicked
+
+    private void RTPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RTPanelMouseClicked
+        int xPos = 218;
+        int yPos = 41;
+        this.drawCircle(xPos, yPos);
+    }//GEN-LAST:event_RTPanelMouseClicked
+
+    private void LMPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LMPanelMouseClicked
+        int xPos = 18;
+        int yPos = 141;
+        this.drawCircle(xPos, yPos);
+    }//GEN-LAST:event_LMPanelMouseClicked
+
+    private void MMPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MMPanelMouseClicked
+        int xPos = 118;
+        int yPos = 141;
+        this.drawCircle(xPos, yPos);
+    }//GEN-LAST:event_MMPanelMouseClicked
+
+    private void RMPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RMPanelMouseClicked
+        int xPos = 218;
+        int yPos = 141;
+        this.drawCircle(xPos, yPos);
+    }//GEN-LAST:event_RMPanelMouseClicked
+
+    private void LBPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LBPanelMouseClicked
+        int xPos = 18;
+        int yPos = 241;
+        this.drawCircle(xPos, yPos);
+    }//GEN-LAST:event_LBPanelMouseClicked
+
+    private void MBPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MBPanelMouseClicked
+        int xPos = 118;
+        int yPos = 241;
+        this.drawCircle(xPos, yPos);
+    }//GEN-LAST:event_MBPanelMouseClicked
+
+    private void RBPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RBPanelMouseClicked
+        int xPos = 218;
+        int yPos = 241;
+        this.drawX(xPos, yPos);
+    }//GEN-LAST:event_RBPanelMouseClicked
+
+    public void drawCircle(int xPos, int yPos) {
+        Graphics g = getGraphics();
+        g.drawOval(xPos, yPos, 80, 80);
+    }
+    
+    public void drawX(int xPos, int yPos) {
+        Graphics g = getGraphics();
+        g.drawLine(xPos, yPos, xPos + 80, yPos + 80);
+        g.drawLine(xPos, yPos + 80, xPos + 80, yPos);
+    }
+    
     /**
      * @param args the command line arguments
      */
