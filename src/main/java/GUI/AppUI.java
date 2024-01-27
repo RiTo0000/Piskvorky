@@ -6,7 +6,10 @@ package GUI;
 
 import Piskvorky.Piskvorky;
 import Piskvorky.PiskvorkyWinner;
+import java.awt.BasicStroke;
+import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import javax.swing.JOptionPane;
 
 /**
@@ -470,12 +473,14 @@ public class AppUI extends javax.swing.JFrame {
     }//GEN-LAST:event_RBPanelMouseClicked
 
     public void drawCircle(int xPos, int yPos) {
-        Graphics g = getGraphics();
+        Graphics2D g = (Graphics2D) getGraphics();
+        g.setStroke(new BasicStroke(2));
         g.drawOval(xPos, yPos, 80, 80);
     }
     
     public void drawX(int xPos, int yPos) {
-        Graphics g = getGraphics();
+        Graphics2D g = (Graphics2D) getGraphics();
+        g.setStroke(new BasicStroke(2));
         g.drawLine(xPos, yPos, xPos + 80, yPos + 80);
         g.drawLine(xPos, yPos + 80, xPos + 80, yPos);
     }
@@ -488,7 +493,40 @@ public class AppUI extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this.rootPane, "Remiza");
             } 
             else {//niekto vyhral treba vykreslit ciaru a aj dat popup
+                Graphics2D g = (Graphics2D) getGraphics();
+                g.setColor(Color.RED);
+                g.setStroke(new BasicStroke(4));
+                int xStart = ( winner.xStart * 100 );
+                int yStart = ( winner.yStart * 100 );
+                int xEnd = ( winner.xEnd * 100 );
+                int yEnd = ( winner.yEnd * 100 );
                 
+                if (winner.xStart == winner.xEnd) { //Stlpcovy vitaz
+                    xStart += 18 + 40;
+                    xEnd += 18 + 40;
+                    yStart += 41;
+                    yEnd += 41 + 80;
+                }
+                else if (winner.yStart == winner.yEnd) { //Riadkovy vitaz
+                    xStart += 18;
+                    xEnd += 18 + 80;
+                    yStart += 41 + 40;
+                    yEnd += 41 + 40;
+                }
+                else { //Diagonalny vitaz
+                    xStart += 18;
+                    xEnd += 18 + 80;
+                    if (yStart < yEnd) {
+                        yStart += 41;
+                        yEnd += 41 + 80;
+                    }
+                    else{
+                        yStart += 41 + 80;
+                        yEnd += 41;
+                    }
+                }
+                //Vykreslenie ciary
+                g.drawLine( xStart, yStart, xEnd, yEnd);
             }
         }
     }
