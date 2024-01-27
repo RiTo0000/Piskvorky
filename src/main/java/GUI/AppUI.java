@@ -4,6 +4,7 @@
  */
 package GUI;
 
+import Piskvorky.Piskvorky;
 import java.awt.Graphics;
 
 /**
@@ -11,12 +12,22 @@ import java.awt.Graphics;
  * @author namer
  */
 public class AppUI extends javax.swing.JFrame {
-
+    
+    private Piskvorky piskvorky;
+    
     /**
      * Creates new form AppUI
      */
     public AppUI() {
         initComponents();
+        
+        initApp();
+    }
+    
+    public void initApp() {
+        setLocationRelativeTo(null); //nastavi zobrazovanie na stred obrazovky
+        
+        piskvorky = new Piskvorky();
     }
 
     /**
@@ -304,55 +315,137 @@ public class AppUI extends javax.swing.JFrame {
     private void LTPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LTPanelMouseClicked
         int xPos = 18;
         int yPos = 41;
-        this.drawCircle(xPos, yPos);
+        
+        switch (this.piskvorky.positionClicked(0, 0)) {
+            case 1: // X
+                this.drawX(xPos, yPos);
+                break;
+            case 2: // O
+                this.drawCircle(xPos, yPos);
+                break;
+            default:
+                //tu nerob nic je to 0 teda nie je to povoleny tah
+        }
     }//GEN-LAST:event_LTPanelMouseClicked
 
     private void MTPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MTPanelMouseClicked
         int xPos = 118;
         int yPos = 41;
-        this.drawCircle(xPos, yPos);
+        switch (this.piskvorky.positionClicked(1, 0)) {
+            case 1: // X
+                this.drawX(xPos, yPos);
+                break;
+            case 2: // O
+                this.drawCircle(xPos, yPos);
+                break;
+            default:
+                //tu nerob nic je to 0 teda nie je to povoleny tah
+        }
     }//GEN-LAST:event_MTPanelMouseClicked
 
     private void RTPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RTPanelMouseClicked
         int xPos = 218;
         int yPos = 41;
-        this.drawCircle(xPos, yPos);
+        switch (this.piskvorky.positionClicked(2, 0)) {
+            case 1: // X
+                this.drawX(xPos, yPos);
+                break;
+            case 2: // O
+                this.drawCircle(xPos, yPos);
+                break;
+            default:
+                //tu nerob nic je to 0 teda nie je to povoleny tah
+        }
     }//GEN-LAST:event_RTPanelMouseClicked
 
     private void LMPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LMPanelMouseClicked
         int xPos = 18;
         int yPos = 141;
-        this.drawCircle(xPos, yPos);
+        switch (this.piskvorky.positionClicked(0, 1)) {
+            case 1: // X
+                this.drawX(xPos, yPos);
+                break;
+            case 2: // O
+                this.drawCircle(xPos, yPos);
+                break;
+            default:
+                //tu nerob nic je to 0 teda nie je to povoleny tah
+        }
     }//GEN-LAST:event_LMPanelMouseClicked
 
     private void MMPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MMPanelMouseClicked
         int xPos = 118;
         int yPos = 141;
-        this.drawCircle(xPos, yPos);
+        switch (this.piskvorky.positionClicked(1, 1)) {
+            case 1: // X
+                this.drawX(xPos, yPos);
+                break;
+            case 2: // O
+                this.drawCircle(xPos, yPos);
+                break;
+            default:
+                //tu nerob nic je to 0 teda nie je to povoleny tah
+        }
     }//GEN-LAST:event_MMPanelMouseClicked
 
     private void RMPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RMPanelMouseClicked
         int xPos = 218;
         int yPos = 141;
-        this.drawCircle(xPos, yPos);
+        switch (this.piskvorky.positionClicked(2, 1)) {
+            case 1: // X
+                this.drawX(xPos, yPos);
+                break;
+            case 2: // O
+                this.drawCircle(xPos, yPos);
+                break;
+            default:
+                //tu nerob nic je to 0 teda nie je to povoleny tah
+        }
     }//GEN-LAST:event_RMPanelMouseClicked
 
     private void LBPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LBPanelMouseClicked
         int xPos = 18;
         int yPos = 241;
-        this.drawCircle(xPos, yPos);
+        switch (this.piskvorky.positionClicked(0, 2)) {
+            case 1: // X
+                this.drawX(xPos, yPos);
+                break;
+            case 2: // O
+                this.drawCircle(xPos, yPos);
+                break;
+            default:
+                //tu nerob nic je to 0 teda nie je to povoleny tah
+        }
     }//GEN-LAST:event_LBPanelMouseClicked
 
     private void MBPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MBPanelMouseClicked
         int xPos = 118;
         int yPos = 241;
-        this.drawCircle(xPos, yPos);
+        switch (this.piskvorky.positionClicked(1, 2)) {
+            case 1: // X
+                this.drawX(xPos, yPos);
+                break;
+            case 2: // O
+                this.drawCircle(xPos, yPos);
+                break;
+            default:
+                //tu nerob nic je to 0 teda nie je to povoleny tah
+        }
     }//GEN-LAST:event_MBPanelMouseClicked
 
     private void RBPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RBPanelMouseClicked
         int xPos = 218;
         int yPos = 241;
-        this.drawX(xPos, yPos);
+        switch (this.piskvorky.positionClicked(2, 2)) {
+            case 1: // X
+                this.drawX(xPos, yPos);
+                break;
+            case 2: // O
+                this.drawCircle(xPos, yPos);
+                break;
+            default:
+                //tu nerob nic je to 0 teda nie je to povoleny tah
+        }
     }//GEN-LAST:event_RBPanelMouseClicked
 
     public void drawCircle(int xPos, int yPos) {
