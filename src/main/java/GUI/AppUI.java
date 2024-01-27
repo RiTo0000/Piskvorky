@@ -8,7 +8,6 @@ import Piskvorky.Piskvorky;
 import Piskvorky.PiskvorkyWinner;
 import java.awt.BasicStroke;
 import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JOptionPane;
 
@@ -31,6 +30,7 @@ public class AppUI extends javax.swing.JFrame {
     
     public void initApp() {
         setLocationRelativeTo(null); //nastavi zobrazovanie na stred obrazovky
+        this.setTitle("Hra Piškôrky");
         
         piskvorky = new Piskvorky();
     }
@@ -314,6 +314,8 @@ public class AppUI extends javax.swing.JFrame {
         MTPanel.getAccessibleContext().setAccessibleName("");
         MTPanel.getAccessibleContext().setAccessibleDescription("");
 
+        getAccessibleContext().setAccessibleDescription("");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -489,11 +491,11 @@ public class AppUI extends javax.swing.JFrame {
         PiskvorkyWinner winner = this.piskvorky.checkWinner();
         //TODO logika kreslenia a tak
         if (winner.winner != 0) { //ak sa nerovna 0 tak niekto vyhral alebo je remiza
+            Graphics2D g = (Graphics2D) getGraphics();
             if (winner.winner == 3) { //remiza staci upozornenie
-                JOptionPane.showMessageDialog(this.rootPane, "Remiza");
+                JOptionPane.showMessageDialog(this.rootPane, "Nastala remíza");
             } 
             else {//niekto vyhral treba vykreslit ciaru a aj dat popup
-                Graphics2D g = (Graphics2D) getGraphics();
                 g.setColor(Color.RED);
                 g.setStroke(new BasicStroke(4));
                 int xStart = ( winner.xStart * 100 );
@@ -527,7 +529,16 @@ public class AppUI extends javax.swing.JFrame {
                 }
                 //Vykreslenie ciary
                 g.drawLine( xStart, yStart, xEnd, yEnd);
+                if (winner.winner == 1) {
+                    JOptionPane.showMessageDialog(this.rootPane, "Vyhráva hráč: X");
+                }
+                else {
+                    JOptionPane.showMessageDialog(this.rootPane, "Vyhráva hráč: O");
+                } 
             }
+            //vycistime hraciu plochu aj grid
+            piskvorky.reset();
+            this.repaint();
         }
     }
     

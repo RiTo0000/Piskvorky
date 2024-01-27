@@ -106,4 +106,9 @@ public class Piskvorky {
         //ak som sa dostal az tu je remiza
         return new PiskvorkyWinner(0, 0, 0, 0, 3); //remiza treba to nejak poslat tam
     }
+    
+    public void reset() {
+        this.grid = new int[3][3];
+        this.nextPlayer = 1; //zacina stale X
+    }
 }
